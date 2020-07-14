@@ -222,6 +222,10 @@ module Generic : Scheme = struct
     (* ';' is safe but some systems treat it like '&'. *)
     a.(Char.code ';') <- false;
     a.(Char.code '+') <- false;
+    a.(Char.code '@') <- false;
+    (print_endline ("before=" ^ (string_of_bool a.(Char.code '\''))));
+    a.(Char.code '\'') <- false;
+    (print_endline ("after=" ^ (string_of_bool a.(Char.code '\''))));
     a
 
   let safe_chars_for_query_key : safe_chars =
